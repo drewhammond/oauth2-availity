@@ -3,6 +3,8 @@
 namespace Drewhammond\OAuth2\Client\Provider;
 
 use League\OAuth2\Client\Provider\AbstractProvider;
+use League\OAuth2\Client\Token\AccessToken;
+use Psr\Http\Message\ResponseInterface;
 
 class Availity extends AbstractProvider
 {
@@ -38,11 +40,11 @@ class Availity extends AbstractProvider
      *
      * Availity does not support this so we'll just return an empty string
      *
-     * @param \League\OAuth2\Client\Token\AccessToken $token
+     * @param AccessToken $token
      *
      * @return string
      */
-    public function getResourceOwnerDetailsUrl(\League\OAuth2\Client\Token\AccessToken $token)
+    public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
         return '';
     }
@@ -63,14 +65,12 @@ class Availity extends AbstractProvider
     /**
      * Checks a provider response for errors.
      *
-     * @throws \League\OAuth2\Client\Provider\Exception\IdentityProviderException
-     *
-     * @param  \Psr\Http\Message\ResponseInterface $response
+     * @param  ResponseInterface $response
      * @param  array|string $data Parsed response data
      *
      * @return void
      */
-    protected function checkResponse(\Psr\Http\Message\ResponseInterface $response, $data)
+    protected function checkResponse(ResponseInterface $response, $data)
     {
         // TODO: Implement checkResponse() method.
     }
@@ -82,11 +82,11 @@ class Availity extends AbstractProvider
      * Availity does not support this so we'll just return an empty interface
      *
      * @param  array $response
-     * @param  \League\OAuth2\Client\Token\AccessToken $token
+     * @param  AccessToken $token
      *
      * @return \League\OAuth2\Client\Provider\ResourceOwnerInterface
      */
-    protected function createResourceOwner(array $response, \League\OAuth2\Client\Token\AccessToken $token)
+    protected function createResourceOwner(array $response, AccessToken $token)
     {
         return null;
     }

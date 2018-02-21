@@ -1,6 +1,11 @@
 {
   "name": "drewhammond/oauth2-availity",
-  "description": "Availity Provider for OAuth2 clients",
+  "description": "Availity Provider for OAuth2 client",
+  "keywords": [
+    "oauth",
+    "oauth2",
+    "availity"
+  ],
   "require": {
     "league/oauth2-client": "^2.0"
   },
