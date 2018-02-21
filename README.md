@@ -9,6 +9,28 @@
 
 @TODO
 
+## Usage
+
+The example below is taken from a Laravel project with the `AVAILITY_CLIENT_ID` and `AVAILITY_CLIENT_SECRET` defined in the project .env file.
+
+
+```php
+
+  // Instantiate Availity provider
+  $provider = new \Drewhammond\OAuth2\Client\Provider\Availity( [
+    'clientId'     => getenv( 'AVAILITY_CLIENT_ID' ),
+    'clientSecret' => getenv( 'AVAILITY_CLIENT_SECRET' ),
+  ] );
+
+  // Fetch access token using client_credentials grant (only grant type supported by Availity)
+  $accessToken = $provider->getAccessToken( 'client_credentials' );
+
+  // Do something with your access token...
+  $token   = $accessToken->getToken();
+  $expires = $accessToken->getExpires();
+
+```
+
 ## Support
 
 Please open a new issue if you run into any problems.

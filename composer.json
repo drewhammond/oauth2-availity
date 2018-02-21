@@ -1,11 +1,19 @@
 {
   "name": "drewhammond/oauth2-availity",
   "description": "Availity Provider for OAuth2 client",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Drew Hammond",
+      "email": "drew@alphagenetica.com"
+    }
+  ],
   "keywords": [
     "oauth",
     "oauth2",
     "availity"
   ],
+  "homepage": "https://github.com/drewhammond/oauth2-availity",
   "require": {
     "league/oauth2-client": "^2.0"
   },
@@ -14,13 +22,6 @@
     "mockery/mockery": "^1.0",
     "squizlabs/php_codesniffer": "^3.2"
   },
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Drew Hammond",
-      "email": "drew@alphagenetica.com"
-    }
-  ],
   "autoload": {
     "psr-4": {
       "Drewhammond\\OAuth2\\Client\\": "src/"
