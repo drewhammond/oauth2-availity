@@ -3,11 +3,15 @@
 namespace Drewhammond\OAuth2\Client\Provider;
 
 use League\OAuth2\Client\Provider\AbstractProvider;
+use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Token\AccessToken;
+use League\OAuth2\Client\Tool\BearerAuthorizationTrait;
 use Psr\Http\Message\ResponseInterface;
 
 class Availity extends AbstractProvider
 {
+    use BearerAuthorizationTrait;
+
     /**
      * Returns the base URL for authorizing a client.
      *
@@ -68,10 +72,14 @@ class Availity extends AbstractProvider
      * @param  array|string $data Parsed response data
      *
      * @return void
+     * @throws \League\OAuth2\Client\Provider\Exception\IdentityProviderException
      */
     protected function checkResponse(ResponseInterface $response, $data)
     {
-        // TODO: Implement some actual checking here...
+        $status = $response->getStatusCode();
+        if ($status >= 400) {
+            throw new IdentityProviderException($data['error'] ?: $response->getReasonPhrase(), $status, $response);
+        }
     }
 
     /**
